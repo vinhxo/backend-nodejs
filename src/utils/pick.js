@@ -5,10 +5,11 @@
  * @returns {Object}
  */
 
+//read attribute name and role of query and save to obj
 //pick(req.query, ['name', 'role'])
 const pick = (object, keys) => {
   return keys.reduce((obj, key) => {
-    // Check req.bod consist key or not
+    // Check req.query consist key or not
     if (object && Object.prototype.hasOwnProperty.call(object, key)) {
       obj[key] = object[key];
     }

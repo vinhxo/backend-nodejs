@@ -29,6 +29,7 @@ const userSchema = mongoose.Schema(
             trim: true,
             minlength: 8,
             validate(value) {
+                console.log('22222222');
                 if (!value.match(/\d/) || !value.match(/[a-zA-Z]/)) {
                     throw new Error('Password must contain at least one letter and one number');
                 }
@@ -53,6 +54,8 @@ const userSchema = mongoose.Schema(
 // add plugin that converts mongoose to json
 userSchema.plugin(toJSON);
 userSchema.plugin(paginate);
+
+//use soft deletion of documents
 userSchema.plugin(mongoose_delete, { overrideMethods: 'all' });
 
 /**
